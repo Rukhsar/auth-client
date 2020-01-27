@@ -16,7 +16,15 @@ const routes = [
   {
     path: '/signin',
     name: 'signin',
-    component: SignIn
+    component: SignIn,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['auth/authenticated']) {
+        return next({
+          name: 'dashboard'
+        })
+      }
+      next()
+    }
   },
   {
     path: '/dashboard',
