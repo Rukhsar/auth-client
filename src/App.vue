@@ -1,13 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+      <TheNavigation />
     </div>
     <router-view />
   </div>
 </template>
+<script>
+import TheNavigation from "@/components/TheNavigation";
 
+export default {
+  components: {
+    TheNavigation
+  }
+};
+</script>
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -28,5 +35,17 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+#nav ul li {
+  padding: 0px 20px;
+}
+#nav ul li a {
+  text-decoration: none;
 }
 </style>
